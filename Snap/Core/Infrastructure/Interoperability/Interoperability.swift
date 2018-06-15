@@ -12,7 +12,7 @@ public extension XCTestCase {
       with: view,
       isRecording: isRecording,
       tesTarget: testTarget
-    ).toMatchSnapshot()
+    ).toMatchRecordedSnapshot()
   }
 
   @objc
@@ -25,6 +25,6 @@ public extension XCTestCase {
       with: layer,
       isRecording: isRecording,
       tesTarget: testTarget
-    ).toMatchSnapshot()
+    ).toMatchRecordedSnapshot()
   }
 }

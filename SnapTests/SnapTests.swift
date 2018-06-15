@@ -11,7 +11,7 @@ private final class SnapTests: XCTestCase {
     let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     view.backgroundColor = .red
     
-    expect(view).toMatchSnapshot()
+    expectSnapshot(view).toMatchRecordedSnapshot()
   }
   
   func test_box_with_text_aligned_to_center() {
@@ -23,7 +23,7 @@ private final class SnapTests: XCTestCase {
     label.textAlignment = .center
     view.addSubview(label)
    
-    expect(view).toMatchSnapshot()
+    expectSnapshot(view).toMatchRecordedSnapshot()
   }
   
   func test_box_with_gradient_layer() {
@@ -37,34 +37,34 @@ private final class SnapTests: XCTestCase {
     layer.startPoint = CGPoint(x: 0.0, y: 1.0)
     layer.endPoint = CGPoint(x: 0.0, y: 1.0)
 
-    expect(layer).toMatchSnapshot()
+    expectSnapshot(layer).toMatchRecordedSnapshot()
   }
   
   func test_box_with_custom_name() {
     let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     view.backgroundColor = .yellow
     
-    expect(view).toMatchSnapshot(named: "yellow_box")
+    expectSnapshot(view).toMatchRecordedSnapshot(named: "yellow_box")
   }
  
   func test_box_with_all_device_configurations() {
     let view = UIView()
     view.backgroundColor = .green
     
-    expect(view).toMatchSnapshot(for: .allDevices)
+    expectSnapshot(view).toMatchRecordedSnapshot(for: .allDevices)
   }
   
   func test_box_with_iphone_device_configurations() {
     let view = UIView()
     view.backgroundColor = .gray
     
-    expect(view).toMatchSnapshot(for: .iPhoneDevices)
+    expectSnapshot(view).toMatchRecordedSnapshot(for: .iPhoneDevices)
   }
   
   func test_box_with_ipad_device_configurations() {
     let view = UIView()
     view.backgroundColor = .purple
     
-    expect(view).toMatchSnapshot(for: .iPadDevices)
+    expectSnapshot(view).toMatchRecordedSnapshot(for: .iPadDevices)
   }
 }
