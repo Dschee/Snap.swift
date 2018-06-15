@@ -34,7 +34,7 @@ struct SnapshotViewMatcher: ViewMatcher {
     toMatchRecordedSnapshot(named: nil)
   }
 
-  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot")
+  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot(for:)")
   func toMatchSnapshot(for devices: [Device]) {
     self.toMatchRecordedSnapshot(for: devices)
   }
@@ -45,7 +45,7 @@ struct SnapshotViewMatcher: ViewMatcher {
     }
   }
 
-  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot")
+  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot(for:)")
   func toMatchSnapshot(for allDevices: AllDevices) {
     self.toMatchRecordedSnapshot(for: allDevices)
   }
@@ -68,7 +68,7 @@ struct SnapshotViewMatcher: ViewMatcher {
   }
 
 
-  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot")
+  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot(named:)")
   func toMatchSnapshot(named: String?) {
     toMatchRecordedSnapshot(named: named, with: nil)
   }

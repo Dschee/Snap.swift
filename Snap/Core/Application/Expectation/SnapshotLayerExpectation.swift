@@ -4,7 +4,7 @@ import XCTest
 // MARK: - XCTestCase + CALayer Expectation
 
 extension XCTestCase {
-  @available(swift, obsoleted: 4.1, renamed: "expectSnapshot")
+  @available(swift, obsoleted: 4.1, renamed: "expectSnapshot(_:function:file:)")
   public func expect(_ layer: CALayer, function: String = #function, file: String = #file ) -> LayerMatcher {
     return self.expectSnapshot(layer, function: function, file: file)
   }
