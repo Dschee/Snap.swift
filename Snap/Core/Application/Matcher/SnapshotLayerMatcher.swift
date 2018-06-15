@@ -21,19 +21,29 @@ struct SnapshotLayerMatcher: LayerMatcher {
     self.testTarget = testTarget
     self.viewMatcherProvider = viewMatcherProvider
   }
-  
+
+  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot")
   func toMatchSnapshot() {
-    toMatchSnapshot(named: nil)
+    toMatchRecordedSnapshot()
   }
-  
+
+  func toMatchRecordedSnapshot() {
+    toMatchRecordedSnapshot(named: nil)
+  }
+
+  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot(named:)")
   func toMatchSnapshot(named: String?) {
+    self.toMatchRecordedSnapshot(named: named)
+  }
+
+  func toMatchRecordedSnapshot(named: String?) {
     let view = UIView(frame: layer.frame)
     view.layer.insertSublayer(layer, at: 0)
-    
+
     viewMatcherProvider.makeMatcher(
       with: view,
       isRecording: isRecording,
       tesTarget: testTarget
-    ).toMatchSnapshot(named: named)
+    ).toMatchRecordedSnapshot(named: named)
   }
 }

@@ -24,20 +24,35 @@ struct SnapshotViewMatcher: ViewMatcher {
     self.extractViewImage = extractViewImage
     self.compareImages = compareImages
   }
-  
+
+  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot")
   func toMatchSnapshot() {
-    toMatchSnapshot(named: nil)
+    self.toMatchRecordedSnapshot()
   }
-  
+
+  func toMatchRecordedSnapshot() {
+    toMatchRecordedSnapshot(named: nil)
+  }
+
+  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot")
   func toMatchSnapshot(for devices: [Device]) {
+    self.toMatchRecordedSnapshot(for: devices)
+  }
+
+  func toMatchRecordedSnapshot(for devices: [Device]) {
     devices.forEach { device in
-      self.toMatchSnapshot(named: nil, with: device)
+      self.toMatchRecordedSnapshot(named: nil, with: device)
     }
   }
-  
+
+  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot")
   func toMatchSnapshot(for allDevices: AllDevices) {
+    self.toMatchRecordedSnapshot(for: allDevices)
+  }
+
+  func toMatchRecordedSnapshot(for allDevices: AllDevices) {
     var deviceList = [Device]()
-    
+
     switch allDevices {
     case .allDevices:
       deviceList = allDevices.all
@@ -48,15 +63,21 @@ struct SnapshotViewMatcher: ViewMatcher {
     }
 
     deviceList.forEach { device in
-      self.toMatchSnapshot(named: nil, with: device)
+      self.toMatchRecordedSnapshot(named: nil, with: device)
     }
   }
-  
+
+
+  @available(swift, deprecated: 4.1, renamed: "toMatchRecordedSnapshot")
   func toMatchSnapshot(named: String?) {
-    toMatchSnapshot(named: named, with: nil)
+    toMatchRecordedSnapshot(named: named, with: nil)
+  }
+
+  func toMatchRecordedSnapshot(named: String?) {
+    toMatchRecordedSnapshot(named: named, with: nil)
   }
   
-  private func toMatchSnapshot(named: String?,
+  private func toMatchRecordedSnapshot(named: String?,
                                with device: Device? = nil)
   {
     let updatedTestTarget = testTarget.named(named, with: device)
